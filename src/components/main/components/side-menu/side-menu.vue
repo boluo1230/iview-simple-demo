@@ -14,7 +14,7 @@
           <side-menu-item v-if="showChildren(item)" :key="`menu-${item.name}`" :parent-item="item"></side-menu-item>
           <menu-item v-else :name="getNameOrHref(item)" :key="`menu-${item.name}`">
             <Icon :type="item.icon || ''"/>
-            <span>{{ showTitle(item) }}</span></menu-item>
+            <span >{{ showTitle(item) }}</span></menu-item>
         </template>
       </template>
     </Menu>
@@ -115,7 +115,6 @@ export default {
 <style lang="less">
   @import './side-menu.less';
 
-  /*.level_span {*/
-  /*  margin-left: 2px*/
-  /*}*/
+  .level_span {
+  }
 </style>

@@ -4,7 +4,8 @@
     <DropdownMenu ref="dropdown" slot="list">
       <template v-for="child in children">
         <Icon v-if="showChildren(child)" :icon-size="iconSize" :parent-item="child" :key="`drop-${child.name}`"></Icon>
-        <DropdownItem v-else :key="`drop-${child.name}`" :name="child.name"><Icon :size="iconSize" :type="child.icon"/><span class="menu-title">{{ showTitle(child) }}</span></DropdownItem>
+        <DropdownItem v-else :key="`drop-${child.name}`" :name="child.name"><Icon :size="iconSize" :type="child.icon"/>
+          <span class="menu-title">{{ showTitle(child)}}</span></DropdownItem>
       </template>
     </DropdownMenu>
   </Dropdown>

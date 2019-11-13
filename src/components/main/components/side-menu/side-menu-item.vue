@@ -2,7 +2,7 @@
   <Submenu :name="`${parentName}`">
     <template slot="title">
       <Icon :type="parentItem.icon"/>
-      <span>{{ showTitle(parentItem) }}</span>
+      <span style="margin-left: 6px">{{ showTitle(parentItem) }}</span>
     </template>
     <template v-for="item in children">
       <template v-if="item.children && item.children.length === 1">
@@ -11,7 +11,7 @@
       </template>
       <template v-else>
         <side-menu-item v-if="showChildren(item)" :key="`menu-${item.name}`" :parent-item="item"></side-menu-item>
-        <menu-item v-else :name="getNameOrHref(item)" :key="`menu-${item.name}`"><Icon :type="item.icon || ''"/><span>{{ showTitle(item) }}</span></menu-item>
+        <menu-item v-else :name="getNameOrHref(item)" :key="`menu-${item.name}`"><Icon :type="item.icon || ''"/><span style="margin-left: 6px">{{ showTitle(item) }}</span></menu-item>
       </template>
     </template>
   </Submenu>
