@@ -50,7 +50,7 @@ export default [
     name: 'account',
     meta: {
       icon: 'ios-ionitron-outline',
-      title: '公众号配置'
+      title: '表格配置'
     },
     component: Main,
     children: [
@@ -59,7 +59,7 @@ export default [
         name: 'account-list',
         meta: {
           icon: 'ios-ionitron-outline',
-          title: '公众号配置'
+          title: '表格列表'
           // hideInBread: true
         },
         component: () => import('@/view/account/AccountList.vue')
@@ -69,7 +69,7 @@ export default [
         name: 'account-info',
         meta: {
           icon: 'ios-ionitron-outline',
-          title: '公众号信息',
+          title: '表格详情',
           hideInMenu: true
         },
         component: () => import('@/view/account/AccountInfo.vue')

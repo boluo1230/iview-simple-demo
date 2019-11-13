@@ -6,68 +6,17 @@
         <Panel name="base">
           公众号基本信息配置
           <p slot="content">
-            <FormItem label="公众号名字：">
+            <FormItem label="id：">
+              <Input v-model="formItem.id"></Input>
+            </FormItem>
+            <FormItem label="名字：">
               <Input v-model="formItem.name"></Input>
             </FormItem>
-            <FormItem label="AppId：">
-              <Input v-model="formItem.appId"></Input>
+            <FormItem label="地址：">
+              <Input v-model="formItem.address"></Input>
             </FormItem>
-            <FormItem label="AppSecret：">
-              <Input v-model="formItem.appSecret"></Input>
-            </FormItem>
-            <FormItem label="ApiSecret：">
-              <Input v-model="formItem.apiSecret" placeholder="调用api时校验参数用的密钥，默认为${appSecret}"></Input>
-            </FormItem>
-            <FormItem label="AccessToken(Url)：">
-              <Input v-model="formItem.tokenUrl"></Input>
-            </FormItem>
-            <FormItem label="JsTicket(Url)：">
-              <Input v-model="formItem.jsconfigUrl"></Input>
-            </FormItem>
-            <FormItem label="SignToken：">
-              <Input v-model="formItem.signToken"></Input>
-            </FormItem>
-            <FormItem label="公众号类型：">
-              <RadioGroup v-model="formItem.type">
-                <Radio label="media_public">公众号</Radio>
-                <Radio label="mini_program">小程序</Radio>
-              </RadioGroup>
-            </FormItem>
-          </p>
-        </Panel>
-        <Panel name="other">
-          其他信息配置
-          <p slot="content">
-            <FormItem label="业务地址(Url)：">
-              <Card>
-                <div>
-                  <Divider v-if="!formItem.service_url || formItem.service_url.length===0" orientation="left">添加地址<span
-                    @click="addServiceUrl()"><Icon
-                    type="md-add-circle"/></span></Divider>
-                  <div v-for="(item,index) in formItem.service_url" :key="index">
-                    <Divider orientation="left">地址{{index + 1}}<span @click="addServiceUrl()"><Icon
-                      type="md-add-circle"/></span><span @click="delServiceUrl(index)"><Icon
-                      type="md-remove-circle"/></span></Divider>
-                    <Input v-model="formItem.service_url[index]"></Input>
-                  </div>
-                </div>
-              </Card>
-            </FormItem>
-            <FormItem label="LOGO：">
-              <!--<div>-->
-              <!--<Upload v-if="!formItem.logo"-->
-              <!--type="drag"-->
-              <!--:before-upload="beforeUpload" style="width: 60%" :action="uploadUrl">-->
-              <!--<Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>-->
-              <!--<p>点击上传</p>-->
-              <!--</Upload>-->
-              <!--</div>-->
-              <div>
-                <Upload :before-upload="beforeUpload" :action="uploadUrl">
-                  <Button style="display: inline-block;" icon="ios-cloud-upload-outline">点击更换</Button>
-                </Upload>
-                <img style="width: 150px;" class="img-logo" :src="formItem.logo">
-              </div>
+            <FormItem label="日期：">
+              <Input v-model="formItem.date"></Input>
             </FormItem>
           </p>
         </Panel>
@@ -117,7 +66,7 @@ export default {
           key: 'address'
         }
       ],
-      data1: [
+      data6: [
         {
           name: 'John Brown',
           age: 18,
@@ -198,8 +147,9 @@ export default {
   },
   mounted () {
     if (this.$route.query.appId !== undefined) {
-      this.formItem._id = this.$route.query.appId
-      this.getInfo()
+      this.formItem = this.data6[0]
+      this.formItem.id = this.$route.query.appId
+      // this.getInfo()
     }
   }
 }

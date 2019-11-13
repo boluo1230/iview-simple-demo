@@ -2,7 +2,7 @@
   <div>
     <Card>
       <Button type="primary" @click="add" ghost>新增</Button>
-      <Table class="table" border :columns="columns" :data="data"></Table>
+      <Table class="table" border :columns="columns" :data="data6"></Table>
     </Card>
   </div>
 </template>
@@ -15,10 +15,6 @@ export default {
     return {
       columns: [
         {
-          title: 'AppID',
-          key: 'appId'
-        },
-        {
           title: '名称',
           key: 'name',
           render: (h, params) => {
@@ -28,37 +24,16 @@ export default {
           }
         },
         {
-          title: '类型',
-          key: 'type',
-          render: (h, params) => {
-            return h('div', [
-              h('p', params.row.type === 'mini_program' ? '小程序' : '公众号')
-            ])
-          }
+          title: '年龄',
+          key: 'age'
         },
-        // {
-        //   title: 'Logo',
-        //   key: 'address',
-        //   render: (h, params) => {
-        //     return h('div', [
-        //       h('img', {
-        //         props: {
-        //           type: 'primary',
-        //           size: 'small'
-        //         },
-        //         attrs: {
-        //           src: params.row.logo, style: 'width: 100px;border-radius: 2px;margin-top:5px'
-        //         }
-        //       },)
-        //     ]);
-        //   }
-        // },
         {
-          title: '更新时间',
-          key: 'updateDate'
-          // render: (h, params) => {
-          //   return h('div', new Date(this.data[params.index].updateDate).toDateString())
-          // }
+          title: ' 地址',
+          key: 'address'
+        },
+        {
+          title: '日期',
+          key: 'date'
         },
         {
           title: '操作',
@@ -77,7 +52,7 @@ export default {
                 },
                 on: {
                   click: () => {
-                    this.$router.push('/account/account-info?appId=' + this.data[params.index].appId)
+                    this.$router.push('/account/account-info?appId=' + params.index)
                   }
                 }
               }, '修改')
@@ -85,7 +60,33 @@ export default {
           }
         }
       ],
-      data: []
+      data: [],
+      data6: [
+        {
+          name: 'John Brown',
+          age: 18,
+          address: 'New York No. 1 Lake Park',
+          date: '2016-10-03'
+        },
+        {
+          name: 'Jim Green',
+          age: 24,
+          address: 'London No. 1 Lake Park',
+          date: '2016-10-01'
+        },
+        {
+          name: 'Joe Black',
+          age: 30,
+          address: 'Sydney No. 1 Lake Park',
+          date: '2016-10-02'
+        },
+        {
+          name: 'Jon Snow',
+          age: 26,
+          address: 'Ottawa No. 2 Lake Park',
+          date: '2016-10-04'
+        }
+      ]
     }
   },
   methods: {
